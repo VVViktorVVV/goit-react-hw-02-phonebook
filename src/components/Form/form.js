@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-// import shortid from 'shortid';
 
 // import PropTypes from 'prop-types';
 // import s from './form.module.css'
 
 class Form extends Component {
     state = {
-        name: ''
-        
-        
+        name: '',
+        number:''
     };
 
     // contactId = shortid.generate();
@@ -34,8 +32,7 @@ class Form extends Component {
     }
 
     reset = () => {
-        this.setState({ name: '' });
-        this.setState({ id: '' });
+        this.setState({ name: '', number: '' });
     }
 
 
@@ -52,15 +49,25 @@ class Form extends Component {
                         required
                         onChange={this.inputChange}
                         value={this.state.name}
-                        
-                        
+                    />
+                </label>
+                <label>
+                    Number
+                    <input
+                        type="tel"
+                        name="number"
+                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                        required
+                        onChange={this.inputChange}
+                        value={this.state.number}
                     />
                 </label>
                 <button type='submit' className='btn' >Add contact</button>
             </form>
         )
     }
-
+    
 }
 
 
